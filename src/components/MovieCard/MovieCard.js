@@ -1,5 +1,5 @@
 import React from 'react'
-import './UserCard.css';
+import './MovieCard.css';
 import { useNavigate } from "react-router-dom";
 
 export default function UserCard(props) {
@@ -16,13 +16,13 @@ export default function UserCard(props) {
         <div className='rating-tag'>
           <span className="badge rounded-pill text-light bg-danger">Rating : {rating?rating:'7.2'}</span>
         </div>
-        <img alt="" src={image} />
+        <img className='center' alt="" src={image} />
         <div className="user-info">
           <p>Name : {name}</p><br />
           <p>Language: {language}</p><br />
           <p >Premiered Date: <small >{new Date(date).toUTCString()}</small></p>
-        </div>
         <button onClick={handleClick} className="btn" type="button">Get Summary</button>
+        </div>
       </div>
     </div>
   )

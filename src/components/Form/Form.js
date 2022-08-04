@@ -25,7 +25,7 @@ export default function Form() {
 
   function handleChange(e) {
     setUserDetail({
-      ...userDetail, [e.target.name]: e.target.value
+        ...userDetail, [e.target.name]: e.target.value
     })
   }
 
@@ -55,13 +55,15 @@ export default function Form() {
       name: "",
       email: ""
     })
+    
     showAlert("You Booked your ticket succefully!")
   }
   
   return (
     <div className='container'>
-      <SelfDismissAlert alert={alert}/>
       <Link to='/' className='go-back-arrow'><i className="fa-solid fa-arrow-left"> </i> Go to Home</Link>
+      <h2 className='text-center'>Ticket Booking Form</h2>
+      <SelfDismissAlert alert={alert}/>
       <form onSubmit={handleFormSubmit}>
         <div className="form-group" >
           <label htmlFor="exampleInputEmail1">Movie Name</label>
@@ -70,9 +72,10 @@ export default function Form() {
           <input type="text" className="form-control" required name="name" id="name" value={userDetail.name} onChange={handleChange} aria-describedby="nameHelp" placeholder="Enter your name" />
           <label htmlFor="exampleInputEmail1">Email address</label>
           <input type="email" className="form-control" required name="email" id="email" value={userDetail.email} onChange={handleChange} aria-describedby="emailHelp" placeholder="Enter your email" />
-          <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
+        <div className="text-center">
         <button type="submit" className="btn btn-primary">Submit</button>
+        </div>
       </form>
     </div>
   )

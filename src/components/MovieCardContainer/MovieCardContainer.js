@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import UserCard from '../UserCard/UserCard';
-import './UserCardContainer.css';
+import UserCard from '../MovieCard/MovieCard';
+import './MovieCardContainer.css';
 
 export default function Content() {
   const [movieData, setMovieData] = useState([]);
@@ -28,7 +28,7 @@ export default function Content() {
       <div className="container">
         <div className="row">
           {movieData.map((movieItem) => {
-            return <div className="col-md-3" key={movieItem.show.url}>
+            return <div className="col-md-4" key={movieItem.show.url}>
               <UserCard movie={movieItem} name={movieItem.show.name} language={movieItem.show.language} image={movieItem.show.image.original} rating={movieItem.show.rating.average} id={movieItem.show.id} date={movieItem.show.premiered} />
             </div>
           })}

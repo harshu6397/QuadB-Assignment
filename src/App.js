@@ -1,5 +1,5 @@
 import './App.css';
-import Content from './components/UserCardContainer/UserCardContainer';
+import Content from './components/MovieCardContainer/MovieCardContainer';
 import Navbar from './components/Navbar/Navbar';
 import Summary from './components/Summary/Summary';
 import {
