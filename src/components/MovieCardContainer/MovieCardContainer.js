@@ -9,6 +9,7 @@ export default function Content() {
     try {
       const response = await fetch('https://api.tvmaze.com/search/shows?q=all');
       const jsonData = await response.json();
+      console.log(jsonData[0].show.image.original)
       setMovieData(jsonData);
     }
     catch (error) {
@@ -28,8 +29,9 @@ export default function Content() {
       <div className="container">
         <div className="row">
           {movieData.map((movieItem) => {
+            console.log(!movieItem.show.image ? "Not image found" : movieItem.show.image.original )
             return <div className="col-md-4" key={movieItem.show.url}>
-              <UserCard movie={movieItem} name={movieItem.show.name} language={movieItem.show.language} image={movieItem.show.image.original} rating={movieItem.show.rating.average} id={movieItem.show.id} date={movieItem.show.premiered} />
+              <UserCard movie={movieItem} name={movieItem.show.name} language={movieItem.show.language} image={!movieItem.show.image ? "Not image found" : movieItem.show.image.original} rating={movieItem.show.rating.average} id={movieItem.show.id} date={movieItem.show.premiered} />
             </div>
           })}
         </div>
